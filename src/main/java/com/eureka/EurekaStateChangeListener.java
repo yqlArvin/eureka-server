@@ -1,11 +1,7 @@
-package com.tmp.eureka;
+package com.eureka;
 
 import com.netflix.appinfo.InstanceInfo;
-import org.springframework.cloud.netflix.eureka.server.event.EurekaInstanceCanceledEvent;
-import org.springframework.cloud.netflix.eureka.server.event.EurekaInstanceRegisteredEvent;
-import org.springframework.cloud.netflix.eureka.server.event.EurekaInstanceRenewedEvent;
-import org.springframework.cloud.netflix.eureka.server.event.EurekaRegistryAvailableEvent;
-import org.springframework.cloud.netflix.eureka.server.event.EurekaServerStartedEvent;
+import org.springframework.cloud.netflix.eureka.server.event.*;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 

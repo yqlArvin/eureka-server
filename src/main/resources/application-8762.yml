@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: eureka
+  cloud:
+    client:
+      ipAddress: 127.0.0.1
+
+server:
+  port: 8762
+eureka:
+  instance:
+    appname: eureka #这里要跟‘spring.application.name’一致，还有‘prefer-ip-address’为false,同时开启自身注册，‘available-replicas’有效副本才不为空
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+    prefer-ip-address: false
+    lease-expiration-duration-in-seconds: 30 #续约到期时间（默认90秒）
+    lease-renewal-interval-in-seconds: 10 #续约更新时间间隔（默认30秒）,使得eureka及时剔除无效服务
+    hostname: peer2
+  client:
+    serviceUrl:
+      defaultZone: http://peer1:8761/eureka/,http://peer2:8762/eureka/,http://peer3:8763/eureka/
+      #在该默认配置下，注册中心也会将自己作为客户端尝试注册自己，因此要禁用客户端注册行为,高可用集群下相互注册需要为true
+      register-with-eureka: true #是否注册到自身服务端，默认为true，高可用需要注册到本
+      fetch-registry: true   #是否从服务器拉取注册信息，默认为true
+    server:
+      enable-self-preservation: false #关闭自我保护模式（缺省为打开）
+      eviction-interval-timer-in-ms: 10000 #续期时间，清理无效服务的时间间隔，默认是60*1000
