@@ -13,6 +13,7 @@ public class EurekaStateChangeListener {
 
     /**
      * 服务下线事件
+     *
      * @param eurekaInstanceCanceledEvent
      */
     @EventListener
@@ -27,6 +28,7 @@ public class EurekaStateChangeListener {
 
     /**
      * 服务注册事件
+     *
      * @param event
      */
     @EventListener
@@ -38,6 +40,7 @@ public class EurekaStateChangeListener {
 
     /**
      * 服务续约事件
+     *
      * @param event
      */
     @EventListener
@@ -49,6 +52,7 @@ public class EurekaStateChangeListener {
 
     /**
      * 注册中心启动事件
+     *
      * @param event
      */
     @EventListener
@@ -58,6 +62,7 @@ public class EurekaStateChangeListener {
 
     /**
      * 启动事件
+     *
      * @param event
      */
     @EventListener
